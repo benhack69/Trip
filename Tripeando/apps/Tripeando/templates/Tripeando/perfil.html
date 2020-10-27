@@ -1,0 +1,78 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+        <!-- start banner Area -->
+        <section class="relative about-banner">	
+            <div class="overlay overlay-bg"></div>
+            <div class="container">				
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="about-content col-lg-12">
+                        <h1 class="text-white">
+                            Mi Perfil			
+                        </h1>	
+                    </div>	
+                </div>
+            </div>
+        </section>
+        <!-- End banner Area -->					  
+        
+        <!-- Start post-content Area -->
+        <section class="post-content-area single-post-area fondo-perfil">
+            <center>
+                <div class="button-group-area mt-40">
+                    <a href="{% url 'Crearpost' %}" class="genric-btn primary e-large">Crear Post</a>
+                           
+                </div>
+                <br>
+                <br>
+            </center>
+            <center>
+                <div class="col-lg-4 sidebar-widgets">
+                    <div class="widget-wrap">
+                        <a href="#" class="genric-btn danger-border circle arrow">Cerrar Sesión<span class="lnr lnr-arrow-right"></span></a>
+                        <div class="single-sidebar-widget user-info-widget">
+                            <img src="{% static 'Tripeando/img/blog/user-info.png' %}">
+                            <br>
+                            <br>
+                            <h4>Camilo Fuentes</h4>
+                            <ul class="social-links">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                            <p>
+                                He viajado mucho.
+                            </p>
+                        </div>
+                        <div class="single-sidebar-widget popular-post-widget">
+                            <h4 class="popular-title">Posts Populares</h4>
+                            <div class="popular-post-list">
+                                <div class="single-post-list d-flex flex-row align-items-center">
+                                    <div class="thumb">
+                                        <img class="img-fluid" src="{% static 'Tripeando/img/blog/pp1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="details">
+                                        <a href="#"><h6>Viaje a Valdivia.</h6></a>
+                                        <p>Hace 1 mes.</p>
+                                    </div>
+                                </div>
+                                <div class="single-post-list d-flex flex-row align-items-center">
+                                    <div class="thumb">
+                                        <img class="img-fluid" src="{% static 'Tripeando/img/blog/pp1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="details">
+                                        <a href="#"><h6>Pasando por temuco.</h6></a>
+                                        <p>Hace 2 días.</p>
+                                    </div>
+                                </div>
+                                								
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        </section>
+        <!-- End post-content Area -->
+{% endblock contenido1 %}

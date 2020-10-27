@@ -1,0 +1,29 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+      					  
+{% block contenido1 %}
+        <!-- Start post-content Area -->
+        <section class="post-content-area single-post-area fondo-perfil">
+            <center>
+                <div class="comment-form col-lg-8">
+                    <h4>Crear Post</h4>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="titulo" placeholder="Titulo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulo'">>
+                            <textarea class="form-control mb-10" rows="5" name="post" placeholder="Escribe tu post" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Escribe tu post'" required=""></textarea>
+                        </div>
+                        <a href="#" class="genric-btn info">Insertar Imagen</a>
+                        <br>
+                        <br>
+                        <a href="#" class="primary-btn text-uppercase">Publicar</a>	
+                    </form>
+                    
+                </div>
+            </center>
+            
+        </section>
+        <!-- End post-content Area -->
+{% endblock contenido1 %}
+
+        

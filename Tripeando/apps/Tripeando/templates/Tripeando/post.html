@@ -1,0 +1,197 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+			<!-- start banner Area -->
+			<section class="relative about-banner">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->					  
+			
+			<!-- Start post-content Area -->
+			<section class="post-content-area single-post-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 posts-list">
+							<div class="single-post row">
+								<div class="col-lg-12">
+									<div class="feature-img">
+										<img class="img-fluid" src="{% static 'Tripeando/img/blog/valle-del-rio-cochamo.jpg' %}" alt="">
+									</div>									
+								</div>
+								<div class="col-lg-3  col-md-3 meta-details">
+									<div class="user-details row">
+										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">Martin Otarola</a> <span class="lnr lnr-user"></span></p>
+										<p class="date col-lg-12 col-md-12 col-6"><a href="#">12 Deciembre, 2017</a> <span class="lnr lnr-calendar-full"></span></p>
+										<p class="view col-lg-12 col-md-12 col-6"><a href="#">600 Visitas</a> <span class="lnr lnr-eye"></span></p>
+										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">2 Comentarios</a> <span class="lnr lnr-bubble"></span></p>
+										<ul class="social-links col-lg-12 col-md-12 col-6">
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+											<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+										</ul>																				
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9">
+									<h3 class="mt-20 mb-20">Valle del Río Cochamó</h3>
+									<p class="excert">
+										Descripción
+									</p>
+									<p>
+										Descripción									</p>
+									<p>
+										Descripción									</p>
+								</div>
+								<div class="col-lg-12">
+									<div class="quotes">
+										Descripción									</div>
+									<div class="row mt-30 mb-30">
+										<div class="col-6">
+											<img class="img-fluid" src="{% static 'Tripeando/img/post/rio_cochamo.jpg' %}" alt="">
+										</div>
+										<div class="col-6">
+											<img class="img-fluid" src="{% static 'Tripeando/img/post/cochamo.jpg' %}" alt="">
+										</div>	
+										<div class="col-lg-12 mt-30">
+											<p>
+												Descripción.
+											</p>											
+										</div>									
+									</div>
+								</div>
+							</div>
+							<div class="navigation-area">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+										<div class="thumb">
+											<a href="#"><img class="img-fluid" src="{% static 'Tripeando/img/post/chile-river33 (1).jpg' %}" alt=""></a>
+										</div>
+										<div class="arrow">
+											<a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
+										</div>
+										<div class="detials">
+											<p>Anterior Post</p>
+											<a href="#"><h4>Rios Hermosos</h4></a>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+										<div class="detials">
+											<p>Siguiente Post</p>
+											<a href="#"><h4>Temuco lo mejor!</h4></a>
+										</div>
+										<div class="arrow">
+											<a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
+										</div>
+										<div class="thumb">
+											<a href="#"><img class="img-fluid" src="{% static 'Tripeando/img/post/temuco.jpg' %}" alt=""></a>
+										</div>										
+									</div>									
+								</div>
+							</div>
+							<div class="comments-area">
+								<h4>Comentarios(2)</h4>
+								<div class="comment-list">
+									<div class="single-comment justify-content-between d-flex">
+										<div class="user justify-content-between d-flex">
+											<div class="thumb">
+												<img src="{% static 'Tripeando/img/blog/c1.jpg' %}" alt="">
+											</div>
+											<div class="desc">
+												<h5>Flipin</h5>
+												<p class="date">Diciembre 5, 2018</p>
+												<p class="comment">
+													OLA
+												</p>
+											</div>
+										</div>
+										<div class="reply-btn">
+											   <a href="" class="btn-reply text-uppercase">Responder</a> 
+										</div>
+									</div>
+								</div>	
+								<div class="comment-list">
+									<div class="single-comment justify-content-between d-flex">
+										<div class="user justify-content-between d-flex">
+											<div class="thumb">
+												<img src="{% static 'Tripeandoo/img/blog/c2.jpg' %}" alt="">
+											</div>
+											<div class="desc">
+												<h5>Naruto</h5>
+												<p class="date">Octubre 18, 2017</p>
+												<p class="comment">
+													Que buen viaje xaval!
+												</p>
+											</div>
+										</div>
+										<div class="reply-btn">
+											   <a href="" class="btn-reply text-uppercase">Responder</a> 
+										</div>
+									</div>
+								</div>	                         				
+							</div>
+							<div class="comment-form">
+								<h4>Deja un comentario</h4>
+								<form>
+									<div class="form-group">
+										<textarea class="form-control mb-10" rows="5" name="mensaje" placeholder="Mensaje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mensaje'" required=""></textarea>
+									</div>
+									<a href="#" class="primary-btn text-uppercase">Comentar</a>	
+								</form>
+							</div>
+						</div>
+						<div class="col-lg-4 sidebar-widgets">
+							<div class="widget-wrap">
+								<div class="single-sidebar-widget user-info-widget">
+									<img src="{% static 'Tripeando/img/blog/user-info.png' %}" alt="">
+									<a href="#"><h4>Martin Otarola</h4></a>
+									<p>
+										Blogger
+									</p>
+									<ul class="social-links">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+										<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+									</ul>
+									<p>
+										El martin te ayudara a viajar.
+									</p>
+								</div>
+								<div class="single-sidebar-widget popular-post-widget">
+									<h4 class="popular-title">Posts Populares</h4>
+									<div class="popular-post-list">
+										<div class="single-post-list d-flex flex-row align-items-center">
+											<div class="thumb">
+												<img class="img-fluid" src="{% static 'Tripeando/img/blog/pp1.jpg' %}" alt="">
+											</div>
+											<div class="details">
+												<a href="#"><h6>Viaje a Temuco</h6></a>
+												<p>Hace 3 Meses</p>
+											</div>
+										</div>
+										<div class="single-post-list d-flex flex-row align-items-center">
+											<div class="thumb">
+												<img class="img-fluid" src="{% static 'Tripeando/img/blog/pp2.jpg' %}" alt="">
+											</div>
+											<div class="details">
+												<a href="#"><h6>Pasando por el sur</h6></a>
+												<p>Hace 5 Meses</p>
+											</div>
+										</div>														
+									</div>
+								</div>				
+							</div>
+						</div>
+					</div>
+				</div>	
+			</section>
+			
+{% endblock contenido1 %}			

@@ -1,0 +1,48 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+			<!-- start banner Area -->
+			<section class="about-banner relative">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Registro				
+							</h1>
+							<br>		
+							<center>
+                                <div class="col-lg-8 col-md-8">
+                                    <form action="#">
+										<div class="mt-10">
+                                            <input type="text" name="usuario" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'" required class="single-input">
+                                        </div>
+                                        <div class="mt-10">
+                                            <input type="text" name="nombre" placeholder="Nombre" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre'" required class="single-input">
+                                        </div>
+                                        <div class="mt-10">
+                                            <input type="text" name="apellido" placeholder="Apellido" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Apellido'" required class="single-input">
+                                        </div>
+                                        <div class="mt-10">
+                                            <input type="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input">
+										</div>
+										<div class="mt-10">
+                                            <input type="password" name="contrasena" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'" required class="single-input">
+                                        </div>
+										<br>
+										<button>Registrar</button>	
+                                        
+									</form>
+									<br>
+								</div>
+							</center>
+				
+						</div>	
+					</div>
+				</div>
+			</section>
+
+{% endblock contenido1 %}
+			
