@@ -24,14 +24,14 @@
         <link rel="stylesheet" href="{% static 'Tripeando/css/linearicons.css' %}">
         <link rel="stylesheet" href="{% static 'Tripeando/css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'Tripeando/css/bootstrap.css' %}">
-        <link rel="stylesheet" href="{% static 'Trpieando/css/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'Tripeando/css/magnific-popup.css' %}">
         <link rel="stylesheet" href="{% static 'Tripeando/css/jquery-ui.css' %}">				
         <link rel="stylesheet" href="{% static 'Tripeando/css/nice-select.css' %}">							
         <link rel="stylesheet" href="{% static 'Tripeando/css/animate.min.css' %}">
         <link rel="stylesheet" href="{% static 'Tripeando/css/owl.carousel.css' %}">				
         <link rel="stylesheet" href="{% static 'Tripeando/css/main.css' %}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+        <!-- <link rel="stylesheet" href="{% static 'Tripeando/css/registromain.css' %}"> -->
+        
     </head>
     <body>	
         <header id="header">
@@ -62,8 +62,13 @@
                       <li><a href="{% url 'Inicio' %}">Inicio</a></li>
                       <li><a href="{% url 'Lugares' %}">Lugares</a></li>
                       <li><a href="{% url 'Blog' %}">Blog</a></li>
+                        
+                        {% if request.user.is_authenticated %}
                         <li><a href="{% url 'Perfil' %}">Mi Perfil</a></li>
-                        <li><a href="{% url 'Login' %}">Iniciar Sesión</a></li>
+                        <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>   
+                        {% else %}
+                        <li><a href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a></li>
+                        {% endif %}
                     </ul>
                   </nav><!-- #nav-menu-container -->					      		  
                 </div>
@@ -154,11 +159,9 @@
           <script src="{% static 'Tripeando/js/easing.min.js' %}"></script>			
         <script src="{% static 'Tripeando/js/hoverIntent.js' %}"></script>
         <script src="{% static 'Tripeando/js/superfish.min.js' %}"></script>	
-        <script src="{% static 'Tripeando/js/jquery.ajaxchimp.min.js' %}"></script>
         <script src="{% static 'Tripeando/js/jquery.magnific-popup.min.js' %}"></script>						
         <script src="{% static 'Tripeando/js/jquery.nice-select.min.js' %}"></script>					
         <script src="{% static 'Tripeando/js/owl.carousel.min.js' %}"></script>							
-        <script src="{% static 'Tripeando/js/mail-script.js' %}"></script>	
         <script src="{% static 'Tripeando/js/main.js' %}"></script>	
     </body>
 </html>

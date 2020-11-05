@@ -3,27 +3,32 @@
 {% load static %}
       					  
 {% block contenido1 %}
-        <!-- Start post-content Area -->
         <section class="post-content-area single-post-area fondo-perfil">
             <center>
                 <div class="comment-form col-lg-8">
                     <h4>Crear Post</h4>
-                    <form>
+                    {% if messages %}
+								{% for mensaje in messages %}
+								<p>{{ mensaje }}</p>
+								{% endfor %}
+
+								{% endif %}
+                    <form action="{% url 'guardarpost' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="form-group">
                             <input type="text" class="form-control" name="titulo" placeholder="Titulo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Titulo'">>
-                            <textarea class="form-control mb-10" rows="5" name="post" placeholder="Escribe tu post" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Escribe tu post'" required=""></textarea>
+                            <textarea class="form-control mb-10" rows="5" name="desc_post" placeholder="Escribe tu post" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Escribe tu post'" required=""></textarea>
                         </div>
-                        <a href="#" class="genric-btn info">Insertar Imagen</a>
+                        <input type="file" name="foto" accept="image/*" required>
                         <br>
                         <br>
-                        <a href="#" class="primary-btn text-uppercase">Publicar</a>	
-                    </form>
-                    
+                        <br>
+                        <button type="submit">Publicar</button>
+                    </form>              
                 </div>
-            </center>
-            
+            </center>         
         </section>
-        <!-- End post-content Area -->
+
 {% endblock contenido1 %}
 
         
