@@ -1071,6 +1071,13 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid transparent;
 }
 
+.genric-btn.primaryy {
+  color: #fff;
+  background: #f8b600;
+  border: 1px solid transparent;
+  margin: 35px;
+}
+
 .genric-btn.primary:hover {
   color: #f8b600;
   border: 1px solid #f8b600;

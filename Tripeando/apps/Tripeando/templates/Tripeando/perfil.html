@@ -23,6 +23,9 @@
             <center>
                 <div class="button-group-area mt-40">
                     <a href="{% url 'Crearpost' %}" class="genric-btn primary e-large">Crear Post</a>
+                    {% for x in perfils %}
+                    <a href="/Aperfil/{{x.usuario}}" class="genric-btn primaryy e-large">Editar Perfil</a>
+                    {%endfor%}
                            
                 </div>
                 <br>
@@ -33,6 +36,7 @@
                     <div class="widget-wrap">
                         {% for x in perfils %}
                         <div class="single-sidebar-widget user-info-widget">
+                            <!--<a href="/Fperfil/{{x.usuario}}" class="genric-btn primaryy e-large">Editar Foto</a>-->
                             <img src="/media/{{ x.foto_perfil }}" width="150px" height="150px">
                             <br>
                             <br>
@@ -49,6 +53,7 @@
                         </div>
                         {% endfor %}
                         {% for p in posts %}
+                        {% if request.user.username == p.usuario2.usuario %}
                         <div class="single-sidebar-widget popular-post-widget">
                             <h4 class="popular-title">Posts</h4>
                             <div class="popular-post-list">
@@ -57,12 +62,13 @@
                                         <img class="img-fluid" src="/media/{{ p.foto_post }}" width="150px" height="150px">
                                     </div>
                                     <div class="details">
-                                        <a href="#"><h6>{{ p.titulo }}</h6></a>
+                                        <h6>{{ p.titulo }}</h6>
                                         <p></p>
                                     </div>
                                 </div>								
                             </div>
                         </div>
+                        {%endif%}
                         {% endfor %}
                     </div>
                 </div>

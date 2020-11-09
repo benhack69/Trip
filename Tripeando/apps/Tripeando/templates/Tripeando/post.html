@@ -22,8 +22,13 @@
 						<div class="col-lg-8 posts-list">
 							{% for p in posts%}
 							<div class="single-post row">
-								
 								<div class="col-lg-12">
+									{% if request.user.username == p.usuario2.usuario %}
+									<a href="/delete/{{p.id_post}}" onClick="return confirm('¿Seguro que quieres borrar tu post {{p.titulo}}?');"
+										Borrar class="genric-btn primaryy e-large">Borrar Post</a>
+									<a href="/editarpost/{{p.id_post}}" class="genric-btn primaryy e-large">Editar Post</a>
+									{% endif %}
+
 									<div class="feature-img">
 										<img src="/media/{{ p.foto_post }}">
 									</div>									
@@ -40,7 +45,7 @@
 								<div class="col-lg-9 col-md-9">
 									<h3 class="mt-20 mb-20">{{ p.titulo }}</h3>
 									<p class="excert">
-										{{p.desc_post}}
+										{{p.desc_post|linebreaksbr }}
 									</p>
 								</div>
 								
@@ -61,10 +66,10 @@
 												<img src="{% static 'Tripeando/img/blog/c1.jpg' %}" alt="">
 											</div>
 											<div class="desc">
-												<h5>Flipin</h5>
+												<h5>{{perfils.usuario}}</h5>
 												<p class="date">Diciembre 5, 2018</p>
 												<p class="comment">
-													OLA
+													{{coments.desc_comentarios}}
 												</p>
 											</div>
 										</div>
@@ -72,37 +77,25 @@
 											   <a href="" class="btn-reply text-uppercase">Responder</a> 
 										</div>
 									</div>
-								</div>	
-								<div class="comment-list">
-									<div class="single-comment justify-content-between d-flex">
-										<div class="user justify-content-between d-flex">
-											<div class="thumb">
-												<img src="{% static 'Tripeandoo/img/blog/c2.jpg' %}" alt="">
-											</div>
-											<div class="desc">
-												<h5>Naruto</h5>
-												<p class="date">Octubre 18, 2017</p>
-												<p class="comment">
-													Que buen viaje xaval!
-												</p>
-											</div>
-										</div>
-										<div class="reply-btn">
-											   <a href="" class="btn-reply text-uppercase">Responder</a> 
-										</div>
-									</div>
-								</div>	                         				
+								</div>	                       				
 							</div>
 							<div class="comment-form">
 								<h4>Deja un comentario</h4>
-								<form>
+								{% if messages %}
+								{% for mensaje in messages %}
+								<p>{{ mensaje }}</p>
+								{% endfor %}
+								{% endif %}
+								<form action="{% url 'guardarcomentario' %}" method="POST">
+									{% csrf_token %}
 									<div class="form-group">
-										<textarea class="form-control mb-10" rows="5" name="mensaje" placeholder="Mensaje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mensaje'" required=""></textarea>
+										<textarea class="form-control mb-10" rows="5" name="desc_comentarios" placeholder="Mensaje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mensaje'" required=""></textarea>
 									</div>
-									<a href="#" class="primary-btn text-uppercase">Comentar</a>	
+									<button class="primary-btn" type="submit">Comentar</button>
 								</form>
 							</div>
 						</div>
+
 						<div class="col-lg-4 sidebar-widgets">
 							<div class="widget-wrap">
 								<div class="single-sidebar-widget user-info-widget">

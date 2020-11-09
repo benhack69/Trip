@@ -1,0 +1,29 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+      					  
+{% block contenido1 %}
+        <section class="post-content-area single-post-area fondo-perfil">
+            <center>
+                <div class="comment-form col-lg-8">
+                    <h4>Editar Perfil</h4>    
+                    <form action="/editarperfil/{{ instancia.usuario }}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nombre" value="{{instancia.nombre}}">
+                            <input type="text" class="form-control" name="apellido" value="{{instancia.apellido}}">
+                            <input type="text" class="form-control" rows="4" name="desc_perfil" value="{{instancia.desc_perfil}}">
+                           <!--<textarea class="form-control mb-10" rows="4" name="desc_post" value="{{instancia.titulo}}"></textarea>-->
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit">Editar</button>
+                    </form> 
+                </div>
+            </center>         
+        </section>
+
+{% endblock contenido1 %}
+
+        

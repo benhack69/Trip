@@ -35,11 +35,20 @@ class Post(models.Model):
     visitas = models.IntegerField()
     usuario2 = models.ForeignKey(Usuario,on_delete=models.CASCADE)
 
+    class Meta:
+        # sort by "fecha" in descending order unless
+        # overridden in the query with order_by()
+        ordering = ['-fecha_publicacion']
+
 
 class Comentarios(models.Model):
     id_comentarios = models.AutoField(primary_key=True)
     desc_comentarios = models.CharField(max_length=100,null=True,blank=False)
     post = models.ForeignKey(Post,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.text
+
 
 class Respuesta_Comentarios(models.Model):
     id_respuesta_c = models.AutoField(primary_key=True)

@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from datetime import datetime
-from apps.Tripeando.models import Usuario,Rol,Post
+from django.utils.datastructures import MultiValueDictKeyError
+from apps.Tripeando.models import Usuario,Rol,Post,Comentarios
 
 
 # Create your views here.
@@ -21,11 +22,18 @@ def Blog(request):
 def Crearpost(request):
     return render(request,'Tripeando/crearpost.html')
 
+def Editarpost(request,id_post):
+    instancia = Post.objects.get(id_post=id_post)
+    return render(request,'Tripeando/editarpost.html',{'instancia':instancia})    
+
 def Postvista(request):
-    id_post = request.POST['id_post']
+    try:
+        id_post = request.POST['id_post']
+    except MultiValueDictKeyError: 
+        id_post = False
+        
     u = Usuario.objects.get(usuario=request.user.username)
     posts = Post.objects.filter(id_post=id_post)
-
     return render(request,'Tripeando/post.html',{'posts':posts,'perfils':u})
 
 def Registro(request):
@@ -33,10 +41,20 @@ def Registro(request):
 
 def iniciar_sesion(request):
     return render(request,'Tripeando/login.html')
+    
 
 def Perfil(request):
     perfils = Usuario.objects.filter(usuario=request.user.username)
     return render(request,'Tripeando/perfil.html',{'perfils':perfils})
+
+def Aperfil(request,usuario):
+    instancia = Usuario.objects.get(usuario=usuario)
+    return render(request,'Tripeando/editarperfil.html',{'instancia':instancia}) 
+
+def Fperfil(request,usuario):
+    instancia = Usuario.objects.get(usuario=usuario)
+    return render(request,'Tripeando/editarfotop.html',{'instancia':instancia})      
+   
 
 
 #Registros
@@ -69,3 +87,48 @@ def guardarpost(request):
     Post.objects.create(titulo=titulo,desc_post=desc_post,foto_post=image,visitas = 0,usuario2 = posts,fecha_publicacion=now)
     messages.success(request,'Se ha creado el post exitosamente')
     return redirect('Crearpost')
+
+def guardarcomentario(request):
+    desc_comentarios = request.POST['desc_comentarios']
+
+    coments = Post.objects.get(usuario2=request.user.username)
+    Comentarios.objects.create(desc_comentarios=desc_comentarios,post = coments)
+    messages.success(request,'Comentario exitoso')
+    return('Post')
+
+def delete(request, id_post):
+    # Recuperamos la instancia de la persona y la borramos
+    instancia = Post.objects.get(id_post=id_post)
+    instancia.delete()
+
+    # Después redireccionamos de nuevo a la lista
+    return redirect('Blog')
+
+
+def edit(request, id_post):
+    titulo = request.POST['titulo']
+    desc_post = request.POST['desc_post']
+    #image = request.FILES.get('foto')
+
+    instancia = Post.objects.filter(id_post=id_post)
+    instancia.update(titulo=titulo,desc_post=desc_post)
+    messages.success(request,'Editado Correctamente')
+    return redirect('Blog')
+
+def editarperfil(request,usuario):
+    nombre = request.POST['nombre']
+    apellido = request.POST['apellido']
+    desc_perfil = request.POST['desc_perfil']
+    #image = request.FILES.get('foto')
+
+    instancia = Usuario.objects.filter(usuario=usuario)
+    instancia.update(nombre=nombre,apellido=apellido,desc_perfil=desc_perfil)
+    return redirect('Perfil')
+
+def editarperfilfoto(request,usuario):
+    image = request.FILES.get('foto')
+
+    instancia = Usuario.objects.filter(usuario=usuario)
+    instancia.update(foto_perfil=image)
+    instancia.save()
+    return redirect('Perfil')    
