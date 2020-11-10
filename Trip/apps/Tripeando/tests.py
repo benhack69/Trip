@@ -1,5 +1,5 @@
 from django.test import TestCase
-from apps.Tripeando.models import Rol,RRSS,Usuario
+from apps.Tripeando.models import Rol,Usuario
 
 # Create your tests here.
 class RolTestCase(TestCase):
@@ -13,18 +13,6 @@ class RolTestCase(TestCase):
 
         self.assertEquals(dato1.nombre_rol,'admin')
         self.assertEquals(dato2.nombre_rol,'usuario')
-
-class RRSSTestCase(TestCase):
-    def setUp(self):
-        RRSS.objects.create(id_rs=1,nombre_rs="facebook")
-        RRSS.objects.create(id_rs=2,nombre_rs="instagram")
-
-    def test_rrss(self):
-        dato1=RRSS.objects.get(id_rs=1)
-        dato2=RRSS.objects.get(id_rs=2)
-
-        self.assertEquals(dato1.nombre_rs,'facebook')
-        self.assertEquals(dato2.nombre_rs,'instagram')
 
 class UsuarioTestCase(TestCase):
     def setUp(self):
