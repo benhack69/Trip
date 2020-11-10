@@ -1,0 +1,64 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+<section class="about-banner relative">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">				
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="about-content col-lg-12">
+				<h1 class="text-white">
+					Registro				
+				</h1>
+				<br>		
+				<center>
+					<div class="col-lg-8 col-md-8">
+						{% if messages %}
+								{% for mensaje in messages %}
+								<p>{{ mensaje }}</p>
+								{% endfor %}
+
+								{% endif %}
+						<form action="{% url 'registrar' %}" method="POST" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="mt-10">
+								<input type="text" placeholder="Ingrese su nombre de usuario" name="usuario" required class="single-input">
+							</div>
+							<div class="mt-10">
+								<input type="text" placeholder="Ingrese su nombre" name="nombre" required class="single-input">
+							</div>
+							<div class="mt-10">
+								<input type="text" placeholder="Ingrese su apellido" name="apellido" required class="single-input">
+							</div>
+							<div class="mt-10">
+								<input type="email" placeholder="Ingrese su email" name="email" required class="single-input">
+							</div>
+							<div class="mt-10">
+								<input type="password" placeholder="Ingrese su contraseña" name="contrasena" required class="single-input">
+							</div>
+							<div class="mt-10">
+								
+								<input type="text" placeholder="Ingrese su codigo de seguridad" name="codigo" required class="single-input">
+							</div>
+							<div class="mt-10">
+								<label class="text-white">Foto</label>
+								<input type="file" name="foto" accept="image/*" required>
+							</div>
+							<div class="mt-10">
+								<input type="text" name="desc_perfil" placeholder="Ingrese su descripcion de perfil" required class="single-input">
+							</div>
+							<br>
+							<button type="submit">Registrar</button>
+							
+						</form>
+						<br>
+					</div>
+				</center>
+	
+			</div>	
+		</div>
+	</div>
+</section>
+
+{% endblock contenido1 %}

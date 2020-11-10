@@ -1,0 +1,75 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+        <!-- start banner Area -->
+        <section class="relative about-banner">	
+            <div class="overlay overlay-bg"></div>
+            <div class="container">				
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="about-content col-lg-12">
+                        <h1 class="text-white">
+                            Mi Perfil			
+                        </h1>	
+                    </div>	
+                </div>
+            </div>
+        </section>
+        <!-- End banner Area -->					  
+        
+        <!-- Start post-content Area -->
+        <section class="post-content-area single-post-area fondo-perfil">
+            <center>
+                <div class="button-group-area mt-40">
+                    <a href="{% url 'Crearpost' %}" class="genric-btn primary e-large">Crear Post</a>
+                    <!--<a href="{% url 'tusposts' %}" class="genric-btn primary e-large">Lista Post</a>-->
+                    {% for x in perfils %}
+                    <a href="/Aperfil/{{x.usuario}}" class="genric-btn primaryy e-large">Editar Perfil</a>
+                    {%endfor%}
+
+                           
+                </div>
+                <br>
+                <br>
+            </center>
+            <center>
+                <div class="col-lg-4 sidebar-widgets">
+                    <div class="widget-wrap">
+                        {% for x in perfils %}
+                        <div class="single-sidebar-widget user-info-widget">
+                            <!--<a href="/Fperfil/{{x.usuario}}" class="genric-btn primaryy e-large">Editar Foto</a>-->
+                            <img src="/media/{{ x.foto_perfil }}" width="150px" height="150px">
+                            <br>
+                            <br>
+                            <h4>{{ x.nombre }} {{ x.apellido }}</h4>
+                            <p>
+                                {{ x.desc_perfil }}
+                            </p>
+                            
+                        </div>
+                        {% endfor %}
+                        {% for p in posts %}
+                        {% if request.user.username == p.usuario2.usuario %}
+                        <div class="single-sidebar-widget popular-post-widget">
+                            <h4 class="popular-title">Posts</h4>
+                            <div class="popular-post-list">
+                                <div class="single-post-list d-flex flex-row align-items-center">
+                                    <div class="thumb">
+                                        <img class="img-fluid" src="/media/{{ p.foto_post }}" width="150px" height="150px">
+                                    </div>
+                                    <div class="details">
+                                        <h6>{{ p.titulo }}</h6>
+                                        <p></p>
+                                    </div>
+                                </div>								
+                            </div>
+                        </div>
+                        {%endif%}
+                        {% endfor %}
+                    </div>
+                </div>
+            
+        </section>
+        <!-- End post-content Area -->
+{% endblock contenido1 %}

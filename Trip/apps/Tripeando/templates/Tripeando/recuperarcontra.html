@@ -1,0 +1,32 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+      					  
+{% block contenido1 %}
+        <section class="post-content-area single-post-area fondo-perfil">
+            <center>
+                <div class="comment-form col-lg-8">
+                    {% if messages %}
+								{% for mensaje in messages %}
+								<p>{{ mensaje }}</p>
+								{% endfor %}
+
+								{% endif %}
+                    <h4>Recuperar Contraseña</h4>
+                    <form action="{% url 'formulario_recuperacion' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="usuario" placeholder="Ingrese su nombre de usuario">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit">Comprobar</button>
+                    </form>        
+                </div>
+            </center>         
+        </section>
+
+{% endblock contenido1 %}
+
+        

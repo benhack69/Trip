@@ -1,0 +1,73 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+			<!-- start banner Area -->
+			<section class="banner-area relative blog-home-banner" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content blog-header-content col-lg-12">
+							<h1 class="text-white">
+								Blog			
+							</h1>	
+						</div>	
+					</div>
+				</div>
+			</section>
+			
+			<!-- Start top-category-widget Area -->
+			<br>
+			<br>
+			<br>
+			<!-- End top-category-widget Area -->
+
+			<section class="post-content-area">	
+				<center>
+					{% if request.user.is_authenticated %}
+					<a href="{% url 'Crearpost' %}" class="genric-btn primary e-large">Crear Post</a>
+					{%else%}
+					{%endif%}
+					</center>
+					<br>	
+				<div class="container">
+					<div class="row">	
+						<div class="col-lg-10 posts-list">
+							<div class="single-post row">
+								{% for p in posts %}
+								<div class="col-lg-3  col-md-3 meta-details">
+									<div class="user-details row">
+										<p class="user-name col-lg-12 col-md-12 col-6">{{ p.usuario2.usuario }} <span class="lnr lnr-user"></span></p>
+										<p class="date col-lg-12 col-md-12 col-6">{{ p.fecha_publicacion|date:"d-m-Y"}}  <span class="lnr lnr-calendar-full"></span></p>
+										<!--<p class="view col-lg-12 col-md-12 col-6">{{ p.visitas }}  <span class="lnr lnr-eye"></span></p>
+										<p class="comments col-lg-12 col-md-12 col-6">2 Comentarios  <span class="lnr lnr-bubble"></span></p>	-->					
+									</div>
+								</div>
+
+								<div class="col-lg-9 col-md-9">
+									<div class="feature-img">		
+										<img src="/media/{{ p.foto_post }}" height="350px">
+									</div>
+									<a class="posts-title"><h3>{{p.titulo}}</h3></a>
+									<form action="{% url 'Post' %}" method="POST">
+										{% csrf_token %}
+										<input type="hidden" name="id_post" value="{{p.id_post}}">
+										{% if request.user.is_authenticated %}
+										<button class="primary-btn" type="submit">Ver Post</button>
+										{% else %}
+										<a class="primary-btn" href="{% url 'iniciar_sesion' %}" class="price-btn">Registrate Para Ver</a>	
+										{% endif %}
+									</form>
+									<br>
+									<br>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End post-content Area -->
+{% endblock contenido1 %}
+

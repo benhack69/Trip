@@ -1,0 +1,32 @@
+{% extends 'Tripeando/plantilla.html' %}
+
+{% load static %}
+      					  
+{% block contenido1 %}
+        <section class="post-content-area single-post-area fondo-perfil">
+            <center>
+                <div class="comment-form col-lg-8">
+                    <h4>Crear Comentario</h4>
+                    {% if messages %}
+								{% for mensaje in messages %}
+								<p>{{ mensaje }}</p>
+								{% endfor %}
+
+								{% endif %}
+                    <form action="{% url 'guardarcomentario' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <textarea class="form-control mb-10" rows="5" name="desc_comentarios" placeholder="Escribe tu post" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Escribe tu post'" required=""></textarea>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit">Comentar</button>
+                    </form>              
+                </div>
+            </center>         
+        </section>
+
+{% endblock contenido1 %}
+
+        
