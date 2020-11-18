@@ -4,6 +4,8 @@ from django.contrib import messages
 from datetime import datetime
 from django.utils.datastructures import MultiValueDictKeyError
 from apps.Tripeando.models import Usuario,Rol,Post,Comentarios
+from rest_framework import viewsets
+from .serializers import UsuarioSerializer
 
 
 # Create your views here.
@@ -199,3 +201,6 @@ def formulario_cambiar_contrasena(request):
 
 
 
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer

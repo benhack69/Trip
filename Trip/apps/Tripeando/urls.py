@@ -1,9 +1,13 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView,LogoutView
-from .views import Inicio,Lugares,Blog,Crearpost,Editarpost,Perfil,Postvista,Registro,recuperacion_cuenta,iniciar_sesion,registrar,formulario_recuperacion,guardarpost,guardarcomentario,delete,edit,editarperfil,editarperfilfoto,Aperfil,Fperfil,formulario_cambiar_contrasena,pregunta_seguridad,cambiocontra,Tusposts,CrearComentario
+from .views import Inicio,Lugares,Blog,Crearpost,Editarpost,Perfil,Postvista,Registro,recuperacion_cuenta,iniciar_sesion,registrar,formulario_recuperacion,guardarpost,guardarcomentario,delete,edit,editarperfil,editarperfilfoto,Aperfil,Fperfil,formulario_cambiar_contrasena,pregunta_seguridad,cambiocontra,Tusposts,CrearComentario,UsuarioViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('usuarios/',UsuarioViewSet)
 
 urlpatterns = [
     path('',Inicio,name="Inicio"),
@@ -32,6 +36,7 @@ urlpatterns = [
     path('edit/<int:id_post>', edit),
     path('editarperfil/<str:usuario>', editarperfil),
     path('editarperfilfoto/<str:usuario>', editarperfilfoto),
+    path('api/',include(router.urls)),
 
 ]
 
