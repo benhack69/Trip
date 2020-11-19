@@ -37,6 +37,7 @@ urlpatterns = [
     path('editarperfil/<str:usuario>', editarperfil),
     path('editarperfilfoto/<str:usuario>', editarperfilfoto),
     path('api/',include(router.urls)),
+    path('oauth/',include('social_django.urls',namespace='social')),
 
 ]
 
