@@ -39,12 +39,7 @@ def Postvista(request):
         
     u = Usuario.objects.get(usuario=request.user.username)
     posts = Post.objects.filter(id_post=id_post)
-    return render(request,'Tripeando/post.html',{'posts':posts,'perfils':u})
-
-def Tusposts(request):
-    usuario = Usuario.objects.get(usuario=request.user.username)
-    posts= Post.objects.filter(usuario=usuario)
-    return render(request,'Tripeando/listapost.html',{'posts':posts,'perfils':usuario})
+    return render(request,'Tripeando/post.html',{'posts':posts,'perfils':u,'perfils':u2})
 
 def Registro(request):
     return render(request,'Tripeando/registro.html')
@@ -84,7 +79,7 @@ def registrar(request):
     rol = Rol.objects.get(nombre_rol = "Cliente")
 
     Usuario.objects.create(usuario=usuario,nombre=nombre,apellido=apellido,email=email,contrasena=clave,codigo_seguridad=codigo,foto_perfil=image,desc_perfil=descripcion,rol=rol)
-    user,created = User.objects.get_or_create(username=usuario)#cambiamos a una nueva forma
+    user,created = User.objects.get_or_create(username=usuario,email=email)#cambiamos a una nueva forma
     user.set_password(clave)#seteamos la clave d euna manera diferente para que la reconozca con el encriptado correcto
     user.is_staff = True
     user.save()

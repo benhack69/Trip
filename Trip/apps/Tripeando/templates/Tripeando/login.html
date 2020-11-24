@@ -27,19 +27,22 @@
 									<br>
 									<center>
 										<button>Iniciar Sesión</button>
+										
 									</center>
 									<br>
-									<a href="{% url 'recuperacioncontra' %}" class="genric-btn link">Olvidé mi Contraseña</a>
+									<a href="{% url 'reset_password' %}" class="genric-btn link">Olvidé mi Contraseña</a>
 									<br>
 									<br>
 									<br>
 									<center>
 										<a href="{% url 'Registro' %}" class="genric-btn primary-border e-large">Crear
 											nueva cuenta</a>
-
 									</center>
+									<a href="{% url 'social:begin' 'facebook' %}" class="genric-btn primary-border e-large"></a>>Login con Facebook</a>
 								</form>
+								
 							</div>
+							
 
 						</center>
 

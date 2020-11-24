@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 SOCIAL_AUTH_FACEBOOK_KEY = '3772561186129899'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'ae1b11374ad4470f8519ce86fceb6682'
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -137,3 +138,10 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'tripeand1@gmail.com'
+EMAIL_HOST_PASSWORD = 'a<szdxfc'

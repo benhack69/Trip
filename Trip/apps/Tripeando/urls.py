@@ -2,8 +2,9 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView,LogoutView
-from .views import Inicio,Lugares,Blog,Crearpost,Editarpost,Perfil,Postvista,Registro,recuperacion_cuenta,iniciar_sesion,registrar,formulario_recuperacion,guardarpost,guardarcomentario,delete,edit,editarperfil,editarperfilfoto,Aperfil,Fperfil,formulario_cambiar_contrasena,pregunta_seguridad,cambiocontra,Tusposts,CrearComentario,UsuarioViewSet
+from .views import Inicio,Lugares,Blog,Crearpost,Editarpost,Perfil,Postvista,Registro,recuperacion_cuenta,iniciar_sesion,registrar,formulario_recuperacion,guardarpost,guardarcomentario,delete,edit,editarperfil,editarperfilfoto,Aperfil,Fperfil,formulario_cambiar_contrasena,pregunta_seguridad,cambiocontra,CrearComentario,UsuarioViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -15,7 +16,6 @@ urlpatterns = [
     path('blog/',Blog,name="Blog"),
     path('crearpost/',Crearpost,name="Crearpost"),
     path('crearcomentario/',CrearComentario,name="Crearcomentario"),
-    path('tusposts/',Tusposts,name="tusposts"),
     path('editarpost/<int:id_post>',Editarpost, name='editarpost'),
     path('Aperfil/<str:usuario>',Aperfil, name='Aperfil'),
     path('Fperfil/<str:usuario>',Fperfil, name='Fperfil'),
@@ -38,6 +38,11 @@ urlpatterns = [
     path('editarperfilfoto/<str:usuario>', editarperfilfoto),
     path('api/',include(router.urls)),
     path('oauth/',include('social_django.urls',namespace='social')),
+
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name="tripeando/password_reset.html"), name="reset_password"),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="tripeando/password_reset_sent.html"), name="password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="tripeando/password_reset_form.html"), name="password_reset_confirm"),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name="tripeando/password_reset_done.html"), name="password_reset_complete"),
 
 ]
 
