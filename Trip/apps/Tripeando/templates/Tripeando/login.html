@@ -30,18 +30,23 @@
 										
 									</center>
 									<br>
-									<a href="{% url 'reset_password' %}" class="genric-btn link">Olvidé mi Contraseña</a>
-									<br>
-									<br>
+									<div class="col-lg-11 col-md-8">
+										<center>
+											<a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'Tripeando/img/facebooklogo.png' %}" width="100px" height="100px" /></a>
+										<a href="{% url 'social:begin' 'github' %}"><img src="{% static 'Tripeando/img/githublogo.png' %}" width="55px" height="55px" /></a>
+										</center>
+									</div>
+									<div class="col-lg-12 col-md-6">
+										<center>
+											<a href="{% url 'reset_password' %}" class="genric-btn link">Olvidé mi Contraseña</a>
+										</center>
+									</div>								
 									<br>
 									<center>
 										<a href="{% url 'Registro' %}" class="genric-btn primary-border e-large">Crear
 											nueva cuenta</a>
 									</center>
-									<a href="{% url 'social:begin' 'facebook' %}" class="genric-btn primary-border e-large"></a>>Login con Facebook</a>
-									<a href="{% url 'social:begin' 'github' %}" class="genric-btn primary-border e-large"></a>>Login con Github</a>
-								</form>
-								
+								</form>		
 							</div>
 							
 
