@@ -38,6 +38,7 @@ urlpatterns = [
     path('editarperfilfoto/<str:usuario>', editarperfilfoto),
     path('api/',include(router.urls)),
     path('oauth/',include('social_django.urls',namespace='social')),
+    path('',include('pwa.urls')),
 
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="tripeando/password_reset.html"), name="reset_password"),
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="tripeando/password_reset_sent.html"), name="password_reset_done"),
