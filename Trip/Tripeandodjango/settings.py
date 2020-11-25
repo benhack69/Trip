@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.Tripeando',
     'rest_framework',
     'social_django',
+    'pwa',
 ]
 
 MIDDLEWARE = [
