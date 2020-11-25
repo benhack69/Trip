@@ -39,7 +39,7 @@ def Postvista(request):
         
     u = Usuario.objects.get(usuario=request.user.username)
     posts = Post.objects.filter(id_post=id_post)
-    return render(request,'Tripeando/post.html',{'posts':posts,'perfils':u,'perfils':u2})
+    return render(request,'Tripeando/post.html',{'posts':posts,'perfils':u})
 
 def Registro(request):
     return render(request,'Tripeando/registro.html')
