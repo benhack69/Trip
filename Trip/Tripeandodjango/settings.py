@@ -30,6 +30,9 @@ ALLOWED_HOSTS = []
 SOCIAL_AUTH_FACEBOOK_KEY = '3772561186129899'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'ae1b11374ad4470f8519ce86fceb6682'
 
+SOCIAL_AUTH_GITHUB_KEY = 'a7afc10de5b4434f80c4'  
+SOCIAL_AUTH_GITHUB_SECRET = '0a646e6c4ff6d634410e8396551b598fb0d63ef7'
+
 
 # Application definition
 
@@ -138,6 +141,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media') #te habia faltado crear esta ruta pa
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.github.GithubOAuth2',
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
