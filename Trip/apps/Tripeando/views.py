@@ -73,12 +73,11 @@ def registrar(request):
     apellido = request.POST['apellido']
     email = request.POST['email']
     clave = request.POST['contrasena']
-    codigo = request.POST['codigo']
     image = request.FILES.get('foto')
     descripcion = request.POST['desc_perfil']
     rol = Rol.objects.get(nombre_rol = "Cliente")
 
-    Usuario.objects.create(usuario=usuario,nombre=nombre,apellido=apellido,email=email,contrasena=clave,codigo_seguridad=codigo,foto_perfil=image,desc_perfil=descripcion,rol=rol)
+    Usuario.objects.create(usuario=usuario,nombre=nombre,apellido=apellido,email=email,contrasena=clave,foto_perfil=image,desc_perfil=descripcion,rol=rol)
     user,created = User.objects.get_or_create(username=usuario,email=email)#cambiamos a una nueva forma
     user.set_password(clave)#seteamos la clave d euna manera diferente para que la reconozca con el encriptado correcto
     user.is_staff = True

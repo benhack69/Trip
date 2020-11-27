@@ -17,7 +17,6 @@ class Usuario(models.Model):
     contrasena = models.CharField(max_length=30,null=False,blank=False)
     foto_perfil = models.ImageField(null=True,blank=True,upload_to = 'uploads')
     desc_perfil = models.CharField(max_length=50,null=True,blank=True)
-    codigo_seguridad = models.CharField(null=False,max_length=30)
     rol = models.ForeignKey(Rol,on_delete=models.CASCADE)
 
 class Post(models.Model):
