@@ -23,6 +23,10 @@
 							{% for p in posts%}
 							<div class="single-post row">
 								<div class="col-lg-12">
+									{% if request.user.is_superuser%}
+									<a href="/deleteadmin/{{p.id_post}}" onClick="return confirm('¿Seguro que quieres banear el post {{p.titulo}}?');"
+										Borrar class="genric-btn primaryy e-large">Banear Post</a>
+									{%endif%}
 									{% if request.user.username == p.usuario2.usuario %}
 									<a href="/delete/{{p.id_post}}" onClick="return confirm('¿Seguro que quieres borrar tu post {{p.titulo}}?');"
 										Borrar class="genric-btn primaryy e-large">Borrar Post</a>

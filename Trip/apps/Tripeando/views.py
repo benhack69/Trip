@@ -113,6 +113,14 @@ def delete(request, id_post):
     # Después redireccionamos de nuevo a la lista
     return redirect('Blog')
 
+def deleteadmin(request, id_post):
+    # Recuperamos la instancia de la persona y la borramos
+    instancia = Post.objects.get(id_post=id_post)
+    instancia.delete()
+
+    # Después redireccionamos de nuevo a la lista
+    return redirect('Blog')
+
 
 def edit(request, id_post):
     titulo = request.POST['titulo']

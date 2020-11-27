@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView,LogoutView
-from .views import Inicio,Lugares,Blog,Crearpost,Editarpost,Perfil,Postvista,Registro,recuperacion_cuenta,iniciar_sesion,registrar,formulario_recuperacion,guardarpost,guardarcomentario,delete,edit,editarperfil,editarperfilfoto,Aperfil,Fperfil,formulario_cambiar_contrasena,pregunta_seguridad,cambiocontra,CrearComentario,UsuarioViewSet
+from .views import Inicio,Lugares,Blog,Crearpost,Editarpost,Perfil,Postvista,Registro,recuperacion_cuenta,iniciar_sesion,registrar,formulario_recuperacion,guardarpost,guardarcomentario,delete,edit,editarperfil,editarperfilfoto,Aperfil,Fperfil,formulario_cambiar_contrasena,pregunta_seguridad,cambiocontra,CrearComentario,deleteadmin,UsuarioViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -33,6 +33,7 @@ urlpatterns = [
     path('Guardar/',guardarpost,name="guardarpost"),
     path('Guardarcomentario/',guardarcomentario,name="guardarcomentario"),
     path('delete/<int:id_post>', delete),
+    path('deleteadmin/<int:id_post>', deleteadmin),
     path('edit/<int:id_post>', edit),
     path('editarperfil/<str:usuario>', editarperfil),
     path('editarperfilfoto/<str:usuario>', editarperfilfoto),

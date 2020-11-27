@@ -3067,6 +3067,12 @@ links {
   text-align: center;
 }
 
+.about-contentt {
+  margin-top: 70px;
+  padding: 10px 0px;
+  text-align: center;
+}
+
 @media (max-width: 767px) {
   .about-content {
     margin-top: 70px;
