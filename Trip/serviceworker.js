@@ -4,7 +4,7 @@ var urlsToCache = [
     '/',
     '/static/Tripeando/css/main.css',
     '/static/Tripeando/css/registromain.css',
-    '/static/Tripeando/css/bootstrap.css',
+    '/static/Tripeando/img/'
 ];
 
 self.addEventListener('install', function(event){
